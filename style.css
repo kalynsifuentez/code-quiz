@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  }
+  
+  body {
+    background: light grey;
+  }
+
+  /* Begin Quiz Button */
+.begin_quiz {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    }
+
+.begin_quiz button {
+    font-size: 25 px;
+    font-weight: 300;
+    padding: 50px 20 px;
+    background: grey;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    height: 60px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+  main {
+    border-style: solid;
+
+  }
+  
+  h1 {
+  border-style: solid;
+  }
+
+  .question {
+    border-style: solid;
+  }
+
+  aside {
+  border-style: solid;
+  }
