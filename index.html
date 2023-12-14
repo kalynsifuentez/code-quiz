@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body>
     <main>
-        <!-- Title -->
-        <h1>Code Quiz</h1>
-
+      <div class="opener">
         <!-- Timer -->
         <aside id="timer">Timer:</aside>
 
+        <!-- Title -->
+        <h1>Code Quiz</h1>
+
         <!-- Begin Button -->
-        <div class="begin_quiz"><button>Let's Go!</button></div>
-        
-        <!-- Question -->
-        <div class="question">What is an element?
-           
-            <!-- Muitiple Choice Answer -->
-                <ul class="answer">
-                   <li>A thing</li>
-                   <li>A thing</li>
-                   <li>A thing</li>
-                   <li>A thing</li>
-                </ul>
+        <button id="start">Let's Go</button>
+    </div>
+
+      <!-- Question -->
+      <div class="question">
+          <span>Question</span>
+
+          <!-- Muitiple Choice Answer -->
+          <div class="answer">
+            <button class="choice">1</button>
+            <button class="choice">2</button>
+            <button class="choice">3</button>
+            <button id="next">Next</button>
+          </div>
         </div>
     </main>
-	<script src="app.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
