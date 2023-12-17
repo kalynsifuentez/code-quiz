@@ -28,7 +28,7 @@ h1 {
     margin: 30px;
 }
 
-.question {
+.main {
 height: 300px;
 display: flex;
 flex-direction: column;
@@ -39,11 +39,15 @@ padding-top: 100px;
 /* border: 5px solid black; */
 }
 
-.question {
+#question {
     margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.answer {
+#answer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,4 +77,6 @@ color: whitesmoke;
     height: 30px;
     border-radius: 4px;
     cursor: pointer;
+    
 }
+
