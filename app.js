@@ -22,29 +22,33 @@ const quizQuestion = [
         { text: "Document Or Model", correct: false},
         { text: "Document Object Mouse", correct: false},
     ]
-},
-]
+}
+];
+// Button Variables & Names:
 const quizQuestionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer");
 // console.log(answerButton)
 const nextButton = document.getElementById("next");
 const startButton = document.getElementById("start");
 
-startButton.addEventListener('click', 
-start)
-
+//Declare index and score:
 let currentQuestionIndex = 0;
 let score = 0;
 
+// Start Button Event Listener
+startButton.addEventListener('click', 
+start)
 
+// Start function to begin quiz. Start button will dissapper. Questions, choices, and next button will appear.
 function start(){
+    startButton.style.visibility = 'hidden';
     currentQuestionIndex = 0;
     score = 0;
+    nextButton.innerHTML = "next";
     showquizQuestion();
-    // alert("Start");
-        startButton.style.visibility = 'hidden';
     }
 
+    // showquizQuestion shows current question in quizquestionElement
 function showquizQuestion(){
     resetState();
 let currentQuestion = quizQuestion[currentQuestionIndex];
@@ -53,6 +57,7 @@ let currentQuestion = quizQuestion[currentQuestionIndex];
 
     currentQuestion.answer.forEach(choice => {
         const button = document.createElement('button');
+        console.log(currentQuestion)
         button.innerHTML = choice.text;
         button.classList.add('choice');
         answerButton.appendChild(button)
