@@ -70,7 +70,7 @@ background: lightblue;
 color: whitesmoke;
 }
 
-#start, #next {
+#start {
     background: darkgray;
     color: white;
     width: 150px;
