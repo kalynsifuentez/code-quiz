@@ -1,3 +1,4 @@
+// Variables & Names:
 const quizQuestion = [
 {
     question: "What is an element?",
@@ -22,24 +23,46 @@ const quizQuestion = [
         { text: "Document Or Model", correct: false},
         { text: "Document Object Mouse", correct: false},
     ]
+},
+{
+    question: "How to make an element clickable?",
+    answers: [
+        { text: "Add event listener", correct: true},
+        { text: "Declare the variable again", correct: false},
+        { text: "Hoist the element to another function", correct: false},
+    ]
 }
 ];
-// Button Variables & Names:
 const quizQuestionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer");
-// console.log(answerButton)
 const nextButton = document.getElementById("next");
-const startButton = document.getElementById("start");
+const timerEl = document.getElementById("timer");
 
 //Declare index and score:
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Start Button Event Listener
-startButton.addEventListener('click', 
-start)
+// Start Button declared - Event Listener and timer will start on click.
+const startButton = document.getElementById("start");
+startButton.addEventListener('click', start);
+startButton.addEventListener('click', timer);
 
-// Start function to begin quiz. Start button will dissapper. Questions, choices, and next button will appear.
+// Timer - Countdown 60 seconds for 4 questions
+function timer(){
+    let seconds = 60;
+     const timeInterval = setInterval(function () {
+         if (seconds > 0) {
+             timerEl.textContent = seconds + " seconds";
+             seconds--;
+           } else {
+             timerEl.textcontent = "Incomplete";
+             clearInterval(timeInterval);
+           }
+     }, 1000);
+ };
+
+// Start function to begin quiz. Start button will dissapper. 
+// Questions, choices, and next button will appear.
 function start(){
     startButton.style.visibility = 'hidden';
     currentQuestionIndex = 0;
@@ -49,7 +72,8 @@ function start(){
     showquizQuestion();
     }
 
-    // showquizQuestion shows current question in quizquestionElement and adds a index numer with choices
+
+// Shows current question in quizquestionElement and adds a index numer with choices:
 function showquizQuestion(){
 let currentQuestion = quizQuestion[currentQuestionIndex];
     let quizQuestionNo = currentQuestionIndex + 1;
@@ -61,11 +85,10 @@ let currentQuestion = quizQuestion[currentQuestionIndex];
         button.classList.add('choice');
         answerButton.appendChild(button)
         quizQuestionElement.appendChild(button)
-        console.log(button)
     });
 }
 
-// function checkanswer (i){
+// function checkanswer (){
     // if (choice === true) {
 //     const selectedBtn = e.target;
 //     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -103,7 +126,6 @@ function showScore(){
             start()
         }
     });
-
 // start();
 
 // // // Next steps: Add event listeners, to each of the three remaining buttons. "Check answer", create a check answer function that calls current question function after you increment the index by 1. 

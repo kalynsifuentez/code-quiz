@@ -36,6 +36,7 @@ justify-content: center;
 align-items: center;
 align-content: space-around;
 padding-top: 100px;
+font-size: larger;
 /* border: 5px solid black; */
 }
 
@@ -79,4 +80,3 @@ color: whitesmoke;
     cursor: pointer;
     
 }
-
