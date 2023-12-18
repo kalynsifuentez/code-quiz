@@ -80,3 +80,11 @@ color: whitesmoke;
     cursor: pointer;
     
 }
+
+.correct{
+    background-color: green;
+}
+
+.incorrect{
+    background-color: red;
+}

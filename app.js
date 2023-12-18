@@ -55,7 +55,7 @@ function timer(){
              timerEl.textContent = seconds + " seconds";
              seconds--;
            } else {
-             timerEl.textcontent = "Incomplete";
+             timerEl.textContent = "Incomplete";
              clearInterval(timeInterval);
            }
      }, 1000);
@@ -68,7 +68,7 @@ function start(){
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next"
-    nextButton.addEventListener('click', showquizQuestion);
+    // nextButton.addEventListener('click', showquizQuestion);
     showquizQuestion();
     }
 
@@ -85,31 +85,44 @@ let currentQuestion = quizQuestion[currentQuestionIndex];
         button.classList.add('choice');
         answerButton.appendChild(button)
         quizQuestionElement.appendChild(button)
+        if (choice.correct){
+            button.dataset.correct = choice.correct;
+        }
+        button.addEventListener('click', selectAnswer);
+        nextButton.addEventListener('click', showquizQuestion);
+
     });
 }
 
-// function checkanswer (){
-    // if (choice === true) {
-//     const selectedBtn = e.target;
-//     const isCorrect = selectedBtn.dataset.correct === "true";
-//     if(isCorrect){
-//         selectedBtn.classList.add('correct');
-//     }else{
-//         selectedBtn.classList.add('incorrect');
-//     }
-//     Array.from(answerButton.children).forEach(button => {
-//         if(button.dataset.correct === 'true'){
-//             button.classList.add('correct');
-//         }
-//         button.disabled = true;
-//         });
-// }
-//    
-function showScore(){
-    resetState();
-    quizQuestionElement.innerHTML = `You scored ${score} out of ${question.length}`;
-    nextButton.innerHTML = "Restart"
+function resetState(){
+    nextButton.style.display = "none";
+    while(answerButton.firstChild){
+        answerButton.removeChild(answerButton.firstChild);
+    }
 }
+
+function selectAnswer (e){
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if(isCorrect){
+        selectedBtn.classList.add('correct');
+    }else{
+        selectedBtn.classList.add('incorrect');
+    }
+    Array.from(answerButton.children).forEach(button => {
+        if(button.dataset.correct === 'true'){
+            button.classList.add('correct');
+        }
+        button.disabled = true;
+        });
+        nextButton.style.display = "block;"
+}
+   
+// function showScore(){
+//     resetState();
+//     quizQuestionElement.innerHTML = `You scored ${score} out of ${question.length}`;
+//     nextButton.innerHTML = "Restart"
+// }
     function handleNextButton(){
         currentQuestionIndex++;
         if(currentQuestionIndex < question.legnth){
