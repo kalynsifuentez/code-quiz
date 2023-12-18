@@ -35,7 +35,7 @@ const quizQuestion = [
 ];
 const quizQuestionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer");
-const nextButton = document.getElementById("next");
+const restartButton = document.getElementById("restart");
 const timerEl = document.getElementById("timer");
 
 //Declare index and score:
@@ -67,7 +67,7 @@ function start(){
     startButton.style.visibility = 'hidden';
     currentQuestionIndex = 0;
     score = 0;
-    nextButton.innerHTML = "Next"
+    // nextButton.innerHTML = "Next"
     // nextButton.addEventListener('click', showquizQuestion);
     showquizQuestion();
     }
@@ -89,17 +89,16 @@ let currentQuestion = quizQuestion[currentQuestionIndex];
             button.dataset.correct = choice.correct;
         }
         button.addEventListener('click', selectAnswer);
-        nextButton.addEventListener('click', showquizQuestion);
-
+        button.addEventListener('click', showquizQuestion);
     });
 }
 
-function resetState(){
-    nextButton.style.display = "none";
-    while(answerButton.firstChild){
-        answerButton.removeChild(answerButton.firstChild);
-    }
-}
+// function resetState(){
+// nextButton.style.display = "none";
+//     while(answerButton.firstChild){
+//         answerButton.removeChild(answerButton.firstChild);
+//     }
+// }
 
 function selectAnswer (e){
     const selectedBtn = e.target;
@@ -115,30 +114,38 @@ function selectAnswer (e){
         }
         button.disabled = true;
         });
-        nextButton.style.display = "block;"
-}
-   
-// function showScore(){
-//     resetState();
-//     quizQuestionElement.innerHTML = `You scored ${score} out of ${question.length}`;
-//     nextButton.innerHTML = "Restart"
-// }
-    function handleNextButton(){
         currentQuestionIndex++;
-        if(currentQuestionIndex < question.legnth){
-            showquizQuestion();
-        }else{
-            showScore();
+            if(currentQuestionIndex < question.legnth){
+                showquizQuestion();
+            }else{
+                showScore();
+            }
         }
-    }
+        // nextButton.style.display = "block;"
 
-    nextButton.addEventListener('click', ()=>{
-        if(currentQuestionIndex < quizQuestion.length){
-            handleNextButton();
-        }else{
-            start()
-        }
-    });
+   
+function showScore(){
+    // resetState();
+    quizQuestionElement.innerHTML = `You scored ${score} out of ${quizQuestion.length}`;
+//     if (selectAnswer=3){
+// };
+}
+    // function handleResetButton(){
+    //     currentQuestionIndex++;
+    //     if(currentQuestionIndex < question.legnth){
+    //         showquizQuestion();
+    //     }else{
+    //         showScore();
+    //     }
+    // }
+
+    // nextButton.addEventListener('click', ()=>{
+    //     if(currentQuestionIndex < quizQuestion.length){
+    //         handleNextButton();
+    //     }else{
+    //         start()
+    //     }
+    // });
 // start();
 
 // // // Next steps: Add event listeners, to each of the three remaining buttons. "Check answer", create a check answer function that calls current question function after you increment the index by 1. 
