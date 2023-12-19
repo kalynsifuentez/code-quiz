@@ -7,9 +7,9 @@ Code Quiz presenting viewer with a series of multiple questions and are given a 
 
 ## Code Source 
 
-HTTPS GitHub Repository: 
+HTTPS GitHub Repository: https://github.com/kalynsifuentez/code-quiz.git
 
-Live URL: 
+Live URL: https://kalynsifuentez.github.io/code-quiz/
 
 ## Screenshot !
 ![Alt text](<assets/Screenshot of Application.png>)
