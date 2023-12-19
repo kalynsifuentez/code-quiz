@@ -89,11 +89,8 @@ function showquizQuestion() {
     button.textContent = choice.text;
     button.classList.add("choice");
     button.setAttribute("value", choice.correct);
-    // quizQuestionElement.appendChild(button);
     button.addEventListener("click", selectAnswer);
-    // button.addEventListener('click', showquizQuestion);
     answerButton.appendChild(button);
-    // selectAnswer();
   });
 }
 
@@ -102,7 +99,6 @@ function selectAnswer(e) {
   const selectedBtn = e.target;
 
   console.log(selectedBtn.value);
-  // const isCorrect = selectedBtn.dataset.correct === "true";
   if (selectedBtn.value === "true") {
     selectedBtn.classList.add("correct");
     score++;
@@ -122,28 +118,7 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-  // resetState();
   quizQuestionElement.innerHTML = `You scored ${score} out of ${quizQuestion.length}`;
-  //     if (selectAnswer=3){
-  // };
 }
-// function handleResetButton(){
-//     currentQuestionIndex++;
-//     if(currentQuestionIndex < question.legnth){
-//         showquizQuestion();
-//     }else{
-//         showScore();
-//     }
-// }
-
-// function resetState(){
-//     while(answerButton.firstChild){
-//     answerButton.removeChild(answerButton.firstChild);
-//     }
-// }
-
-// start();
-
-// // // Next steps: Add event listeners, to each of the three remaining buttons. "Check answer", create a check answer function that calls current question function after you increment the index by 1.
 
 startButton.addEventListener("click", start);
