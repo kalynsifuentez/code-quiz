@@ -59,10 +59,11 @@ function timer() {
       seconds--;
       timerEl.textContent = seconds + " seconds";
     } else {
-      timerEl.textContent = "Incomplete";
+      timerEl.textContent = "Game Over";
+      showScore();
       clearInterval(timeInterval);
     }
-  }, 1000);
+  }, 100);
 }
 
 // Start function to begin quiz. Start button will dissapper.
@@ -112,6 +113,7 @@ function selectAnswer(e) {
 
   if (currentQuestionIndex === quizQuestion.length) {
     showScore();
+    timerEl.style.visibility = "hidden";
   } else {
     showquizQuestion();
   }
@@ -119,6 +121,9 @@ function selectAnswer(e) {
 
 function showScore() {
   quizQuestionElement.innerHTML = `You scored ${score} out of ${quizQuestion.length}`;
+  answerButton.style.visibility = "hidden";
+
 }
+
 
 startButton.addEventListener("click", start);
