@@ -46,9 +46,9 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 // Start Button declared - Event Listener and timer will start on click.
-const startButton = document.getElementById("start");
+let startButton = document.getElementById("start");
 
-let seconds = 60;
+let seconds = 30;
 let timeInterval;
 
 // Timer - Countdown 60 seconds for 4 questions
@@ -70,8 +70,6 @@ function timer() {
 // Questions, choices, and next button will appear.
 function start() {
   startButton.style.visibility = "hidden";
-  // currentQuestionIndex = 0;
-  // score = 0;
   showquizQuestion();
   timer();
 }
@@ -95,7 +93,6 @@ function showquizQuestion() {
   });
 }
 
-
 function selectAnswer(e) {
   const selectedBtn = e.target;
 
@@ -111,8 +108,9 @@ function selectAnswer(e) {
 
   currentQuestionIndex++;
 
-  if (currentQuestionIndex === quizQuestion.length) {
+  if (currentQuestionIndex >= quizQuestion.length) {
     showScore();
+    clearInterval(timeInterval);
     timerEl.style.visibility = "hidden";
   } else {
     showquizQuestion();
@@ -122,8 +120,17 @@ function selectAnswer(e) {
 function showScore() {
   quizQuestionElement.innerHTML = `You scored ${score} out of ${quizQuestion.length}`;
   answerButton.style.visibility = "hidden";
-
+  restartGame();
 }
 
+function restartGame() {
+const restart = document.createElement("button");
+restart.textContent = "Play Again";
+restartButton.appendChild(restart);
+console.log(restartButton.value)
+}
 
 startButton.addEventListener("click", start);
+restartButton.addEventListener('click', function (){
+  window.location.reload()
+});
