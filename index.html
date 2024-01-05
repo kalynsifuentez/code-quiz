@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <nav>
+    <a href="scores.html">High Scores</a></nav>
+
     <main>
       <div class="opener">
         <!-- Timer -->
@@ -29,10 +31,15 @@
           <!-- Muitiple Choice Answer -->
           <div id="answer"></div>
         </div>
-        <div id="score"></div>
+        <div id="score">
+          <label for="msg">Add Initials Here</label>
+          <textarea id="initials"></textarea>
+          <button id="save">Save</button>
+        </div>
+        
         <div id="restart"></div>
       </div>
     </main>
-    <script src="./assets/app.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>

@@ -40,10 +40,14 @@ const quizQuestionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer");
 const restartButton = document.getElementById("restart");
 const timerEl = document.getElementById("timer");
-
+const saveButton = document.getElementById("save");
+const initials = document.getElementById("initials");
+const highScoreElement = document.getElementById("score");
+highScoreElement.style.visibility = "hidden";
 //Declare index and score:
 let currentQuestionIndex = 0;
 let score = 0;
+
 
 // Start Button declared - Event Listener and timer will start on click.
 let startButton = document.getElementById("start");
@@ -63,11 +67,13 @@ function timer() {
       showScore();
       clearInterval(timeInterval);
     }
-  }, 100);
+  }, 1000);
 }
 
 // Start function to begin quiz. Start button will dissapper.
 // Questions, choices, and next button will appear.
+
+
 function start() {
   startButton.style.visibility = "hidden";
   showquizQuestion();
@@ -118,8 +124,10 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-  quizQuestionElement.innerHTML = `You scored ${score} out of ${quizQuestion.length}`;
+  let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
+  quizQuestionElement.innerHTML = `You scored ${finalScore}`;
   answerButton.style.visibility = "hidden";
+  highScoreElement.style.visibility = "visible";
   restartGame();
 }
 
@@ -127,7 +135,6 @@ function restartGame() {
 const restart = document.createElement("button");
 restart.textContent = "Play Again";
 restartButton.appendChild(restart);
-console.log(restartButton.value)
 }
 
 startButton.addEventListener("click", start);

@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.opener {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  background: purple;
+  color: white;
+}
+
+nav, a {
+  background: purple;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#timer {
+  margin: 30px;
+}
+
+h1 {
+  margin: 30px;
+}
+
+.main {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  padding-top: 100px;
+  font-size: larger;
+  /* border: 5px solid black; */
+}
+
+#question {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#answer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice {
+  border: 1px solid black;
+  margin: 20px;
+  height: 50px;
+  width: 300px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  /* align-items: baseline; */
+}
+
+button:hover {
+  background: lightblue;
+  color: whitesmoke;
+}
+
+#start {
+  background: darkgray;
+  color: white;
+  width: 150px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
+}
+
+p {
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
+}
