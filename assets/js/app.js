@@ -131,14 +131,14 @@ function showScore() {
   restartGame();
 }
 
-saveButton.addEventListener("click", function(event) {
-  event.preventDefault();
-  var scoreInitials = {
-    textinput: initials.value
-  };
+// saveButton.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   var scoreInitials = {
+//     textinput: initials.value
+//   };
   
-  localStorage.setItem("scoreInitials", JSON.stringify(scoreInitials));
-});
+//   localStorage.setItem("scoreInitials", JSON.stringify(scoreInitials));
+// });
 
 function restartGame() {
 const restart = document.createElement("button");
