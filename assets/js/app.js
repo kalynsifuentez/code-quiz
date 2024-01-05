@@ -41,7 +41,7 @@ const answerButton = document.getElementById("answer");
 const restartButton = document.getElementById("restart");
 const timerEl = document.getElementById("timer");
 const saveButton = document.getElementById("save");
-const initials = document.getElementById("initials");
+const textinput = document.getElementById("initials");
 const highScoreElement = document.getElementById("score");
 highScoreElement.style.visibility = "hidden";
 //Declare index and score:
@@ -126,10 +126,19 @@ function selectAnswer(e) {
 function showScore() {
   let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
   quizQuestionElement.innerHTML = `You scored ${finalScore}`;
-  answerButton.style.visibility = "hidden";
+  answerButton.style.display = "none";
   highScoreElement.style.visibility = "visible";
   restartGame();
 }
+
+saveButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  var scoreInitials = {
+    textinput: initials.value
+  };
+  
+  localStorage.setItem("scoreInitials", JSON.stringify(scoreInitials));
+});
 
 function restartGame() {
 const restart = document.createElement("button");
