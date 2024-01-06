@@ -25,6 +25,7 @@ nav, a {
   cursor: pointer;
 }
 
+
 #timer {
   margin: 30px;
 }
@@ -43,6 +44,14 @@ h1 {
   padding-top: 100px;
   font-size: larger;
   /* border: 5px solid black; */
+}
+
+#info {
+  margin-left: 500px;
+  margin-right: 500px;
+  text-align: center;
+  /* border: 3px solid black; */
+
 }
 
 #question {
@@ -97,4 +106,30 @@ p {
   margin: 30px;
   justify-content: center;
   align-items: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #info {margin:0}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  /* #info {margin-left: 100px;
+  margin-right:100px;} */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  #info {margin:0}
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  #info {margin:0}
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+  #info {margin:0}
 }

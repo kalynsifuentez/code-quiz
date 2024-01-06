@@ -51,6 +51,7 @@ let score = 0;
 
 // Start Button declared - Event Listener and timer will start on click.
 let startButton = document.getElementById("start");
+const infoEl = document.getElementById("info");
 
 let seconds = 30;
 let timeInterval;
@@ -76,6 +77,7 @@ function timer() {
 
 function start() {
   startButton.style.visibility = "hidden";
+  infoEl.style.display = "none";
   showquizQuestion();
   timer();
 }
@@ -124,21 +126,28 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-  let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
-  quizQuestionElement.innerHTML = `You scored ${finalScore}`;
   answerButton.style.display = "none";
+  if (score===0){
+    quizQuestionElement.innerHTML = `You scored 0`;
+  } else {
+    let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
+  quizQuestionElement.innerHTML = `You scored ${finalScore}`;
   highScoreElement.style.visibility = "visible";
-  restartGame();
+
+  
+}
+restartGame();
+
 }
 
-// saveButton.addEventListener("click", function(event) {
-//   event.preventDefault();
-//   var scoreInitials = {
-//     textinput: initials.value
-//   };
-  
-//   localStorage.setItem("scoreInitials", JSON.stringify(scoreInitials));
-// });
+saveButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  let key = initials.value;
+  let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
+  let value = finalScore;
+  localStorage.setItem(key, value, JSON.stringify(initials));
+  highScoreElement.style.display = "none";
+});
 
 function restartGame() {
 const restart = document.createElement("button");
@@ -150,3 +159,4 @@ startButton.addEventListener("click", start);
 restartButton.addEventListener('click', function (){
   window.location.reload()
 });
+

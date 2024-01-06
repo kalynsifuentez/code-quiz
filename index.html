@@ -9,9 +9,10 @@
   </head>
   <body>
     <nav>
-    <a href="scores.html">High Scores</a></nav>
+      <a href="scores.html">High Scores</a>
+    </nav>
 
-    <main>
+    <main class="container">
       <div class="opener">
         <!-- Timer -->
         <aside id="timer"></aside>
@@ -25,9 +26,17 @@
 
       <!-- Question -->
       <div class="main">
-        <div >
-          <h2 id="question"></h2>
-
+        <div>
+          <h2 id="question">Quiz Rules</h2>
+          <div id="info">
+            <p>
+              Answer the following questions based on your knowledge of HTML,
+              CSS, and JavaScript. The quiz consists of 4 multiple choice
+              questions that must be answered in 30 seconds. If you answer a
+              question incorrectly, you will be penalized by 10 seconds being
+              deducted from the timer.
+            </p>
+          </div>
           <!-- Muitiple Choice Answer -->
           <div id="answer"></div>
         </div>
@@ -36,7 +45,7 @@
           <textarea id="initials"></textarea>
           <button id="save">Save</button>
         </div>
-        
+
         <div id="restart"></div>
       </div>
     </main>
