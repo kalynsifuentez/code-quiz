@@ -94,12 +94,29 @@ button:hover {
   cursor: pointer;
 }
 
-.correct {
-  background-color: green;
+.container {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
-.incorrect {
-  background-color: red;
+.result-name h1 {
+  border-bottom: 1px solid black;
+  margin-right: 0%;
+  padding-right: 20px;
+}
+
+.result h1{
+  border-bottom: 1px solid black;
+  margin-left: 0%;
+  padding-left: 20px;
+
+}
+
+button {
+  cursor: pointer;
 }
 
 p {

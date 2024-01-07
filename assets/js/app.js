@@ -48,7 +48,6 @@ highScoreElement.style.visibility = "hidden";
 let currentQuestionIndex = 0;
 let score = 0;
 
-
 // Start Button declared - Event Listener and timer will start on click.
 let startButton = document.getElementById("start");
 const infoEl = document.getElementById("info");
@@ -73,7 +72,6 @@ function timer() {
 
 // Start function to begin quiz. Start button will dissapper.
 // Questions, choices, and next button will appear.
-
 
 function start() {
   startButton.style.visibility = "hidden";
@@ -127,35 +125,71 @@ function selectAnswer(e) {
 
 function showScore() {
   answerButton.style.display = "none";
-  if (score===0){
+  if (score === 0) {
     quizQuestionElement.innerHTML = `You scored 0`;
   } else {
-    let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
-  quizQuestionElement.innerHTML = `You scored ${finalScore}`;
-  highScoreElement.style.visibility = "visible";
-}
-restartGame();
+    let finalScore = Math.floor((score / currentQuestionIndex) * 100);
+    quizQuestionElement.innerHTML = `You scored ${finalScore}`;
+    highScoreElement.style.visibility = "visible";
+  }
+  restartGame();
 }
 
-saveButton.addEventListener("click", function(event) {
+saveButton.addEventListener("click", function (event) {
   event.preventDefault();
+  let highScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
   let key = initials.value;
-  let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
-  let value = finalScore;
-  localStorage.setItem(key, value, JSON.stringify(initials));
-  highScoreElement.style.display = "none";
+  let finalScore = Math.floor((score / currentQuestionIndex) * 100);
+  let highScore = {
+    initials: key,
+    score: finalScore,
+  };
+  highScores.push(highScore);
+  window.localStorage.setItem("highscores", JSON.stringify(highScores));
+  highScoreElement.style.display = "none";  
+  console.log(highScores);
+
 });
 
-console.log(initials);
+// initialsForm.addEventListener('submit', function (event) {
+//   event.preventDefault();
+//   const initials = document.querySelector('#initials').value;
+//   if (initials !== '') {
+//       let initialsArray = JSON.parse(localStorage.getItem('quizInitials'));
+//       let scoreArray = JSON.parse(localStorage.getItem('quizScores'));
+//       if (!scoreArray || !initialsArray) {
+//           initialsArray = [];
+//           scoreArray = [];
+//       }
+//       initialsArray.push(initials);
+//       scoreArray.push(score);
+//       localStorage.setItem('quizScores', JSON.stringify(scoreArray));
+//       localStorage.setItem('quizInitials', JSON.stringify(initialsArray));
+//       window.location.href = './highScores.html';
+//   }
+//   else {
+//       alert('Please enter your initials');
+//   }
+// })
+
+// Old Code
+
+// saveButton.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   let key = initials.value;
+//   let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
+//   let value = finalScore;
+//   localStorage.setItem(key, value, JSON.stringify(initials));
+//   highScoreElement.style.display = "none";
+// });
 
 function restartGame() {
-const restart = document.createElement("button");
-restart.textContent = "Play Again";
-restartButton.appendChild(restart);
+  const restart = document.createElement("button");
+  restart.textContent = "Play Again";
+  restartButton.appendChild(restart);
 }
 
 startButton.addEventListener("click", start);
-restartButton.addEventListener('click', function (){
-  window.location.reload()
+restartButton.addEventListener("click", function () {
+  window.location.reload();
 });
-
