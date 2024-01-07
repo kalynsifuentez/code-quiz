@@ -151,38 +151,6 @@ saveButton.addEventListener("click", function (event) {
 
 });
 
-// initialsForm.addEventListener('submit', function (event) {
-//   event.preventDefault();
-//   const initials = document.querySelector('#initials').value;
-//   if (initials !== '') {
-//       let initialsArray = JSON.parse(localStorage.getItem('quizInitials'));
-//       let scoreArray = JSON.parse(localStorage.getItem('quizScores'));
-//       if (!scoreArray || !initialsArray) {
-//           initialsArray = [];
-//           scoreArray = [];
-//       }
-//       initialsArray.push(initials);
-//       scoreArray.push(score);
-//       localStorage.setItem('quizScores', JSON.stringify(scoreArray));
-//       localStorage.setItem('quizInitials', JSON.stringify(initialsArray));
-//       window.location.href = './highScores.html';
-//   }
-//   else {
-//       alert('Please enter your initials');
-//   }
-// })
-
-// Old Code
-
-// saveButton.addEventListener("click", function(event) {
-//   event.preventDefault();
-//   let key = initials.value;
-//   let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
-//   let value = finalScore;
-//   localStorage.setItem(key, value, JSON.stringify(initials));
-//   highScoreElement.style.display = "none";
-// });
-
 function restartGame() {
   const restart = document.createElement("button");
   restart.textContent = "Play Again";
