@@ -133,11 +133,8 @@ function showScore() {
     let finalScore = (Math.floor((score/currentQuestionIndex) * 100));
   quizQuestionElement.innerHTML = `You scored ${finalScore}`;
   highScoreElement.style.visibility = "visible";
-
-  
 }
 restartGame();
-
 }
 
 saveButton.addEventListener("click", function(event) {
@@ -148,6 +145,8 @@ saveButton.addEventListener("click", function(event) {
   localStorage.setItem(key, value, JSON.stringify(initials));
   highScoreElement.style.display = "none";
 });
+
+console.log(initials);
 
 function restartGame() {
 const restart = document.createElement("button");
